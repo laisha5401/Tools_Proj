@@ -5,3 +5,31 @@
 https://www.shiyanlou.com/courses/599/labs/1978/document
 
 urljoin 是python用来解决URL相关操作的模块，比如处理从相对url路径得到绝对url路径等；（import urlparse）
+
+
+
+************
+
+一、实现原理
+1、会用到三个文件：crawl.py，rent.csv与index.html，其中rent.csv由crawl.py生成，是房源文件；
+2、crawl.py是一个非常简单的爬取网页的脚本；
+3、index.html是最重要的显示地图的部分；
+4、实现的流程： 分析页面 --> 爬取房源（crawl.py） --> 存储为csv文件（rent.csv） --> 在地图上显示（index.html）
+
+
+二、分析页面
+1、先分析我们需要爬取的页面： http://bj.58.com/pinpaigongyu/
+2、选择好目标价位
+3、打开查看器，审查分页元素，大致了解路径规则：/pinpaigongyu/pn/{page}/?minprice={min_rent}_{max_rent}
+4、对比第一页和第一千页，最终确定以页面是否有 page 元素来作为是否读取完所有房源的判断条件；
+5、简便起见，每一个房源就只记录以下信息：[房源名称，地址，月租，房源url]
+其中地址直接取房源名称里的小区名，有的房源第二列是公寓名而不是小区名，那就只能取第一列作为地址了，有些公寓如果合并第一列第二列地图上会搜不到。
+
+三、调用高德API
+代码没有难度，主要就是看看几个API如何使用；
+相关帮助文档链接：
+高德JavaScript API 帮助文档：http://lbs.amap.com/api/javascript-api/summary/
+高德JavaScript API 示例中心：http://lbs.amap.com/api/javascript-api/example/map/map-show/
+
+Requests: HTTP for Humans：http://www.python-requests.org/en/master/
+csv-CSV文件的读写：
