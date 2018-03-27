@@ -2,6 +2,6 @@
 使用Python脚本爬取某租房网站的房源信息，利用高德的 js API 在地图上标出房源地点，找到距离工作地点1小时车程的房源！
 在项目实现的过程中将熟悉requests、BeautifulSoup、csv等库的简单使用。
 
-
+https://www.shiyanlou.com/courses/599/labs/1978/document
 
 urljoin 是python用来解决URL相关操作的模块，比如处理从相对url路径得到绝对url路径等；（import urlparse）
